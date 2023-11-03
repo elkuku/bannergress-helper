@@ -2,25 +2,24 @@
 
 namespace App\Controller;
 
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/', name: 'default', methods: ['GET'])]
 class DefaultController extends BaseController
 {
-    public function __invoke(
-        #[Autowire('%kernel.project_dir%')] string $projectDir,
-    ): Response
+    public function __invoke(): Response
     {
+        $proxyLat = 33.7243396617476;
+        $proxyLon = 2.8125;
+        $zoom = 1;
+
         return $this->render(
             'default/index.html.twig',
             [
-                'controller_name' => 'DefaultController',
-                'php_version' => PHP_VERSION,
-                'symfony_version' => Kernel::VERSION,
-                'project_dir' => $projectDir,
+                'proxyLat' => $proxyLat,
+                'proxyLon' => $proxyLon,
+                'zoom' => $zoom,
             ]
         );
     }

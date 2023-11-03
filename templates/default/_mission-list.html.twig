@@ -1,0 +1,13 @@
+<div class="list-group">
+    {% for mission in missions %}
+        <div class="list-group-item list-group-item-action">
+
+            {{ mission.title }}
+
+                <button data-action="click->form#queryMission" data-form-id-param="{{ mission.id }}" class="btn btn-info">Search</button>
+
+        </div>
+    {% else %}
+        <div class="list-group-item">No results found!</div>
+    {% endfor %}
+</div>

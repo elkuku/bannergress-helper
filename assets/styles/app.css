@@ -47,6 +47,12 @@ form.form-nomargin {
 .sortable-ghost {
     background-color: lightblue;
 }
+
 .drag-handle {
     cursor: grab;
+}
+
+#map {
+    height: 280px;
+    width: 380px;
 }
